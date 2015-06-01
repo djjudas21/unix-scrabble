@@ -14,5 +14,6 @@ Rules List
 8. Comments are not permitted
 9. Before the game starts, players may choose to permit syntax and reserved words from other languages, e.g. Perl, C or Puppet.
 10. All punctuation tiles are worth 1 point each, except for spaces which are worth 0 points.
-11. Blank tiles to represent spaces are freely available, can not be stored in a player's tile tray.
+11. Blank tiles to represent spaces are freely available at each turn, can not be stored in a player's tile tray.
+12. Blank tiles can only be played one at a time.  eg `wc -l` is a valid play, but `wc       -l` is not
 12. For the purposes of Unix Scrabble, Unix is assumed to be case insensitive in all cases.
