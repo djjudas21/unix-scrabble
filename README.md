@@ -1,3 +1,5 @@
+Rules List
+----------
 1. A "reference system" must be agreed in advance to provide the word list. This should be accessible during play, e.g. a laptop.
 2. Each player has 8 tiles in their hand at any given time, rather than the usual 7 (that's as many as you can fit on a standard Scrabble tile tray).
 3. Alphabetic tiles are in a separate bag from punctuation tiles. Each player draws 6 alphabetic characters and 2 punctuation tiles. At the end of each turn, any tiles played are replenished from the bag with their own type, so the player always has 6 and 2 of each type of tile.
