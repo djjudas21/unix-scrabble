@@ -1,5 +1,9 @@
-Rules List
-----------
+# UNIX Scrabble
+
+UNIX Scrabble is a board game, based on the popular game Scrabble. UNIX Scrabble uses a different letter distribution, an extended character set and a different dictionary to allow players to play expressions used in UNIX-like operating systems.
+
+### Rules List ###
+
 1. A "reference system" must be agreed in advance to provide the word list. This should be accessible during play, e.g. a laptop.
 2. Each player has 8 tiles in their hand at any given time, rather than the usual 7 (that's as many as you can fit on a standard Scrabble tile tray).
 3. Alphabetic tiles are in a separate bag from punctuation tiles. Each player draws 6 alphabetic characters and 2 punctuation tiles. At the end of each turn, any tiles played are replenished from the bag with their own type, so the player always has 6 and 2 of each type of tile.
@@ -17,3 +21,7 @@ Rules List
 11. Blank tiles to represent spaces are freely available at each turn, can not be stored in a player's tile tray.
 12. Blank tiles can only be played one at a time.  eg `wc -l` is a valid play, but `wc       -l` is not
 12. For the purposes of Unix Scrabble, Unix is assumed to be case insensitive in all cases.
+
+### Letter distribution ###
+
+The letter distribution in Scrabble is based on a frequency analysis of the English language. The letter distribution in UNIX Scrabble is based on a frequency analysis of our reference system.
