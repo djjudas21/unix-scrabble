@@ -12,7 +12,8 @@ while getopts ":pmbv" opt; do
   case $opt in
     p)
       # $PATH analysis
-      for path in `echo $PATH | sed 's/:/\n/g'`
+      for path in `echo $PATH | sed 's/:/ \
+/g'`
         do
           WORD_LIST=$WORD_LIST`ls $path`
         done
@@ -42,5 +43,5 @@ fi
 
 # Output!
 echo Character,Count
-echo $WORD_LIST | awk -vFS="" '{for(i=1;i<=NF;i++)w[tolower($i)]++}END{for(i in w) print i,w[i]}' | tr ' ' ','
+echo $WORD_LIST | gawk -vFS="" '{for(i=1;i<=NF;i++)w[tolower($i)]++}END{for(i in w) print i,w[i]}' | tr ' ' ','
 
