@@ -1,9 +1,46 @@
-#!/bin/sh
+#!/bin/bash
 
-# Shonky script to list all binaries in the standard locations, and count the characters
-# for frequency analysis
-#
-# could be improved by replacing the ls command with some invocation of find to find bin
-# directories not in the standard places - or to find commands on a pre-agreed users path
+# Perform basic character frequency analysis on:
+#  -p  the commands found in the users $PATH
+#  -m  mimetypes in /usr/share/mime/globs
+#  -b  this users history
+#  -v  verbose! outputs the word list prior to analysis
 
-ls /bin* /sbin/* /usr/bin/* /usr/sbin/* /usr/local/bin/* /usr/local/sbin/* | cut -d '/' -f4 | awk -vFS="" '{for(i=1;i<=NF;i++)w[tolower($i)]++}END{for(i in w) print i,w[i]}'
+WORD_LIST='';
+
+while getopts ":pmbv" opt; do
+  case $opt in
+    p)
+      # $PATH analysis
+      for path in `echo $PATH | sed 's/:/\n/g'`
+        do
+          WORD_LIST=$WORD_LIST`ls $path`
+        done
+      ;;
+    m)
+      # mimetype analysis
+      WORD_LIST=$WORD_LIST`cat /usr/share/mime/globs | cut -d '*' -f2`
+      ;;
+    b)
+      # .bash_history analysis
+      WORD_LIST=$WORD_LIST`cat ~/.bash_history`
+      ;;
+    v)
+      VERBOSE=1
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      ;;
+  esac
+done
+
+if [ $VERBOSE ]
+then
+  echo $WORD_LIST
+  echo
+fi
+
+# Output!
+echo Character,Count
+echo $WORD_LIST | awk -vFS="" '{for(i=1;i<=NF;i++)w[tolower($i)]++}END{for(i in w) print i,w[i]}' | tr ' ' ','
+
